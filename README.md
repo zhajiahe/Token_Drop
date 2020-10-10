@@ -42,6 +42,10 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py data-bin/wmt16.en_ro --optimizer adam -
 ```
 ## Evaluation
 ### Checkpoint average
-```python scripts/average_checkpoints.py --inputs checkpoints/ --output baseline_model/checkpoint_avg10.pt --num-epoch-checkpoint 10```
+```
+python scripts/average_checkpoints.py --inputs checkpoints/ --output baseline_model/checkpoint_avg10.pt --num-epoch-checkpoint 10
+```
 ### Generate
-```python generate.py path/to/data_bin  --path baseline_model/checkpoint_avg10.pt --gen-subset test --beam 4 --remove-bpe```
+```
+python generate.py path/to/data_bin  --path baseline_model/checkpoint_avg10.pt --gen-subset test --beam 4 --remove-bpe
+```
