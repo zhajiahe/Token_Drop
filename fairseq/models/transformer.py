@@ -87,11 +87,11 @@ class TransformerModel(FairseqEncoderDecoderModel):
         super().__init__(encoder, decoder)
         self.args = args
         self.supports_align_args = True
-        self.RTD_hidden = torch.randn(encoder.embed_tokens.embedding_dim, 2, device='cuda').half()
-        self.RTD_bias = nn.Parameter(torch.zeros(2, device='cuda')).half()
+        self.RTD_hidden = torch.randn(encoder.embed_tokens.embedding_dim, 2, device='cuda')
+        # self.RTD_bias = nn.Parameter(torch.zeros(2, device='cuda')).half()
         if args.fp16:
             self.RTD_hidden = self.RTD_hidden.half()
-            self.RTD_bias = self.RTD_bias.half()
+            # self.RTD_bias = self.RTD_bias.half()
 
 
     @staticmethod
@@ -285,7 +285,7 @@ class TransformerModel(FairseqEncoderDecoderModel):
             RTD_criterion = nn.CrossEntropyLoss()
             pad = src_tokens.t().eq(1)
             self.encoder.drop_targets[pad] = -100
-            RTD_h = torch.matmul(encoder_out.encoder_out, self.RTD_hidden) + self.RTD_bias
+            RTD_h = torch.matmul(encoder_out.encoder_out, self.RTD_hidden)
             RTD_loss = RTD_criterion(RTD_h.view(-1, 2), self.encoder.drop_targets.reshape(-1))
         if self.training and self.args.DTP:
             logits = F.linear(encoder_out.encoder_out, self.encoder.embed_tokens.weight) # weight_tying : reuse embedding matrix
