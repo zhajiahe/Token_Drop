@@ -1,15 +1,16 @@
 # Token_Drop
-This repository contains the original implementation of the token drop methods presented in [todo](Token Drop mechanism for Neural Machine Translation) (COLING 2020)
+This repository contains the original implementation of the token drop methods presented in [Token Drop mechanism for Neural Machine Translation](todo) (COLING 2020)
 code based on fairseq-v0.9.0
 ## Environment
 - python=3.8
 - pytorch=1.4
 ## Installation
 `git clone https://github.com/zhajiahe/Token_Drop.git`
+
 `cd Token_drop && pip intall editable .`
 ## Prepare data (EN-RO)
 ### Download data
-Download WMT16'EN-RO preprocessed by [todo](Lee et al. 2018) : [todo](Data)
+Download WMT16'EN-RO preprocessed by [Lee et al. 2018](todo) : [Data](https://drive.google.com/file/d/1YrAwCEuktG-iDVxtEW-FE72uFTLc5QMl/view?usp=sharing)
 ### binarize data
 `bash preprocess.sh`
 ## Training model
@@ -38,6 +39,6 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py data-bin/wmt16.en_ro --optimizer adam -
 ```
 ## Evaluation
 ### Checkpoint average
-`python scripts/average_checkpoints.py --inputs checkpoints/ --output baseline_model/checkpoint_avg10.pt --num-epoch-checkpoint 10`
+```python scripts/average_checkpoints.py --inputs checkpoints/ --output baseline_model/checkpoint_avg10.pt --num-epoch-checkpoint 10```
 ### Generate
-`python generate.py path/to/data_bin  --path baseline_model/checkpoint_avg10.pt --gen-subset test --beam 4 --remove-bpe`
+```python generate.py path/to/data_bin  --path baseline_model/checkpoint_avg10.pt --gen-subset test --beam 4 --remove-bpe```
