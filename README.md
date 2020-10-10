@@ -8,7 +8,7 @@ code based on fairseq-v0.9.0
 ## Installation
 `git clone https://github.com/zhajiahe/Token_Drop.git`
 
-`cd Token_Drop && pip intall editable .`
+`cd Token_Drop && pip intall --editable .`
 ## Prepare data (EN-RO)
 #### Download data
 Download WMT16'EN-RO preprocessed by [Lee et al. 2018](https://arxiv.org/abs/1802.06901) : [Data](https://drive.google.com/file/d/1YrAwCEuktG-iDVxtEW-FE72uFTLc5QMl/view?usp=sharing)
