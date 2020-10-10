@@ -37,7 +37,7 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py data-bin/wmt16.en_ro --optimizer adam -
                         --share-all-embeddings --fp16 --max-tokens 7500 \
                         --eval-bleu --eval-bleu-remove-bpe \
                         --best-checkpoint-metric bleu --maximize-best-checkpoint-metric \
-                        -s en -t ro --save-dir tokendrop_model --max-epoch 100 \
+                        -s en -t ro --save-dir tokendrop_model --max-epoch 200 \
                         --src-drop 0.15 --tgt-drop 0.3 --drop-method 'unk_tag' --DTP --RTD \
 ```
 ## Evaluation
