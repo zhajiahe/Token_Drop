@@ -1,5 +1,8 @@
 # Token_Drop
-This repository contains the original implementation of the token drop methods presented in [Token Drop mechanism for Neural Machine Translation](todo) (COLING 2020)
+This repository contains the original implementation of the token drop methods presented in 
+
+[Token Drop mechanism for Neural Machine Translation](todo) (COLING 2020)
+
 code based on fairseq-v0.9.0
 ## Environment
 - python=3.8
@@ -10,8 +13,8 @@ code based on fairseq-v0.9.0
 `cd Token_drop && pip intall editable .`
 ## Prepare data (EN-RO)
 ### Download data
-Download WMT16'EN-RO preprocessed by [Lee et al. 2018](todo) : [Data](https://drive.google.com/file/d/1YrAwCEuktG-iDVxtEW-FE72uFTLc5QMl/view?usp=sharing)
-### binarize data
+Download WMT16'EN-RO preprocessed by [Lee et al. 2018](https://arxiv.org/abs/1802.06901) : [Data](https://drive.google.com/file/d/1YrAwCEuktG-iDVxtEW-FE72uFTLc5QMl/view?usp=sharing)
+### Binarize data
 `bash preprocess.sh`
 ## Training model
 We conduct our experiment on 2 Tesla V100 by defalut.
