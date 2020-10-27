@@ -482,8 +482,7 @@ class TransformerEncoder(FairseqEncoder):
             pad = src_tokens.eq(1) # padding index
             DROP_MATRIX[pad] = 0
             src_tokens = src_tokens * (1 - DROP_MATRIX) + self.mask * DROP_MATRIX # replacement
-            if self.RTD:
-                self.drop_targets = DROP_MATRIX.t() # for RTD
+            self.drop_targets = DROP_MATRIX.t()
         x, encoder_embedding = self.forward_embedding(src_tokens)
         if self.drop_method == 'zero_out':
             x = x * (1 - DROP_MATRIX.unsqueeze(-1))
